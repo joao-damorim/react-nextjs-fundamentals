@@ -1,6 +1,12 @@
+import Link from 'next/link'
+
 function About() {
     return (
-        <h1>Página de About</h1>
+        <>
+            <h1>Página de About</h1>
+            <Link href="/" passHref>Voltar</Link>
+        </>
+        
     )
 }
 

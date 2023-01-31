@@ -1,6 +1,11 @@
+import Link from 'next/link'
+
 function Products() {
     return (
-        <h1>Página de Produtos</h1>
+        <>
+            <h1>Página de Produtos</h1>
+            <Link href="/">Voltar</Link>
+        </> 
     )
 }
 
