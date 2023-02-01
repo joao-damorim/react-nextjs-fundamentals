@@ -1,20 +1,43 @@
 import Link from "next/link";
 
-import { useRouter } from 'next/router'
+export async function getStaticProps(context: any) {
+    const { params } = context
 
-export default function Todo() {
+    const data = await fetch(`https://jsonplaceholder.typicode.com/todos/${params.todoId}`)
 
-    const router = useRouter();
+    const todo = await data.json()
 
-    const todoId = router.query.todoId
+    return {
+        props: { todo },
+    }
+}
+
+export async function getStaticPaths() {
+
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/')
+
+    const data = await response.json()
+
+    const paths = data.map((todo: any) => {
+        return {
+            params: {
+                todoId: `${todo.id}`
+            }
+        }
+    })
+    return { paths, fallback: false }
+}
+
+export default function Todo({ todo }: any) {
 
     return (
         <>
-            <Link href="/">
+            <Link href="/todos">
                 Voltar
             </Link>
-            <h1>Exibindo o todoid: {todoId}</h1>
-            <p>Comentário: la la la... <Link href={`/todos/${todoId}/comments/1`}>Detalhes</Link></p>
+            <h1>Exibindo o todoid: {todo.id}</h1>
+            <h3>Texto: {todo.title}</h3>
+            <p>Comentário: la la la... <Link href={`/todos/${todo.id}/comments/1`}>Detalhes</Link></p>
         </>
     )
 }
