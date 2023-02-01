@@ -16,6 +16,11 @@ export default function Navbar() {
                     </Link>
                 </li>
                 <li>
+                    <Link href="/todos" passHref>
+                    Tarefas
+                    </Link>
+                </li>
+                <li>
                     <Link href="/company" passHref>
                     Empresa
                     </Link>
