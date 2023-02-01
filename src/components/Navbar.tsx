@@ -16,6 +16,11 @@ export default function Navbar() {
                     </Link>
                 </li>
                 <li>
+                    <Link href="/company" passHref>
+                    Empresa
+                    </Link>
+                </li>
+                <li>
                     <Link href="/about" passHref>
                     Sobre nós
                     </Link>
