@@ -4,7 +4,6 @@ import Link from 'next/link'
 function About() {
     return (
         <>
-            <Navbar />
             <h1>Página de About</h1>
             <Link href="/" passHref>Voltar</Link>
         </>

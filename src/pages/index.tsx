@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <>
       <main className={styles.main}>
-        <Navbar />
         <h1>Hello World!</h1>
       </main>
     </>
